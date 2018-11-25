@@ -21,7 +21,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name = "TB_EXAME")
 public class Exame implements Serializable {
-
+  public static final String EXAME_POR_NOME = "ExamePorNome";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID_EXAME")

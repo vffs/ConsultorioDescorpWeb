@@ -27,7 +27,8 @@ import org.hibernate.validator.constraints.NotBlank;
 @DiscriminatorValue(value = "F")
 @PrimaryKeyJoinColumn(name = "ID_FUNCIONARIO",referencedColumnName ="ID_USUARIO")
 public class Funcionario extends Usuario implements Serializable {
-
+    public static final String FUNCIONARIO_POR_TIPO = "TipoFuncionario";
+    
     @Enumerated(EnumType.STRING)
     @Column(name = "CL_TIPO_FUNCIONARIO")
     private TipoFuncionario tipo;

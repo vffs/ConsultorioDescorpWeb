@@ -2,13 +2,14 @@
 package servico;
 
 import consultoriodescorp.Exame;
+import static consultoriodescorp.Exame.EXAME_POR_NOME;
 import javax.ejb.Stateless;
 
 /**
  *
  * @author valeria
  */
-@Stateless
+@Stateless()
 public class ExameServico extends Servico<Exame>{
     
     public void salvar(Exame exame){
@@ -22,6 +23,9 @@ public class ExameServico extends Servico<Exame>{
     
     public void remover(Exame exame){
         entityManager.remove(exame);
+    }
+    public Exame getExame(String nome) {
+        return super.getEntidade(EXAME_POR_NOME, new Object[]{nome});
     }
     
     public Exame criar() {
