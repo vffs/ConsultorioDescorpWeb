@@ -26,7 +26,7 @@ import servico.FuncionarioServico;
  */
 public class FuncionarioServicoTeste extends Teste {
      private FuncionarioServico funcionarioServico;
-     @Before
+    @Before
     public void setUp() throws NamingException {
         funcionarioServico = (FuncionarioServico) container.getContext().lookup("java:global/classes/FuncionarioServico!servico.FuncionarioServico");
     }
