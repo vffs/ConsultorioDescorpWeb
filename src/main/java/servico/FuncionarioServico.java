@@ -4,10 +4,9 @@ package servico;
 import consultoriodescorp.Funcionario;
 import static consultoriodescorp.Funcionario.FUNCIONARIO_POR_TIPO;
 import consultoriodescorp.TipoFuncionario;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
-import javax.persistence.TypedQuery;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -37,8 +36,9 @@ public class FuncionarioServico extends Servico<Funcionario>  {
     public Funcionario criar() {
         return new Funcionario();
     }
-    public Funcionario geTipo(TipoFuncionario tipo ) {
-        return super.getEntidade(FUNCIONARIO_POR_TIPO, new Object[]{tipo});
+    
+     public List<Funcionario> getFuncionarioPorTipo(TipoFuncionario tipo) {
+        return super.getEntidades(Funcionario.FUNCIONARIO_POR_TIPO, new Object[] {tipo});
     }
     
     

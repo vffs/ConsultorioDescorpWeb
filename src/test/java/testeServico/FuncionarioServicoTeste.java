@@ -3,7 +3,6 @@ package testeServico;
 
 import consultoriodescorp.Funcionario;
 import consultoriodescorp.TipoFuncionario;
-import java.util.List;
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
 import javax.validation.ConstraintViolation;
@@ -13,7 +12,6 @@ import static org.hamcrest.CoreMatchers.startsWith;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -25,7 +23,7 @@ import servico.FuncionarioServico;
  * @author valeria
  */
 public class FuncionarioServicoTeste extends Teste {
-     private FuncionarioServico funcionarioServico;
+    private FuncionarioServico funcionarioServico;
     @Before
     public void setUp() throws NamingException {
         funcionarioServico = (FuncionarioServico) container.getContext().lookup("java:global/classes/FuncionarioServico!servico.FuncionarioServico");
@@ -39,7 +37,11 @@ public class FuncionarioServicoTeste extends Teste {
     public void getFuncionarioPorId() {
         assertNotNull(funcionarioServico.consultarPorId(new Long(10)));
     }
-     
+    
+    @Test
+    public void consultarFuncionarioPorTipo(){
+        assertEquals(3, funcionarioServico.getFuncionarioPorTipo(TipoFuncionario.MEDICO).size());
+    }
     
     @Test
     public void presistirFuncionario(){

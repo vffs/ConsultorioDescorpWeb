@@ -1,6 +1,7 @@
 
 package servico;
 
+import consultoriodescorp.Funcionario;
 import static javax.persistence.PersistenceContextType.TRANSACTION;
 import java.util.List;
 import javax.ejb.TransactionAttribute;

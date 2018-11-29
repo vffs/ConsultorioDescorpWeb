@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotBlank;
@@ -20,8 +22,15 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Entity
 @Table(name = "TB_EXAME")
+@NamedQueries({
+    @NamedQuery(
+    name="ExamePorNome",
+    query="SELECT e FROM Exame e WHERE e.nome=?1"        
+    )}
+)
 public class Exame implements Serializable {
   public static final String EXAME_POR_NOME = "ExamePorNome";
+  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID_EXAME")
