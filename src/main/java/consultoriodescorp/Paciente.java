@@ -30,6 +30,7 @@ import javax.persistence.Table;
 @DiscriminatorValue(value = "P")
 @PrimaryKeyJoinColumn(name = "ID_PACIENTE",referencedColumnName ="ID_USUARIO")
 public class Paciente extends Usuario implements Serializable {
+    public static final String PACIENTE_POR_PLANO = "Listar.Paciente.Planos";
     
     @Enumerated(EnumType.STRING)
     @Column(name = "CL_PLANO")

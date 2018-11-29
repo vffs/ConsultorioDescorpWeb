@@ -61,6 +61,30 @@ public class PacienteServicoTeste extends Teste{
         paciente = pacienteServico.consultarPorId(new Long(2));
         assertEquals("joaoaugusto@yahoo.com.br", paciente.getEmail());
     }
+  /* 
+    @Test
+    public void atualizarPacienteInvalido() {
+        Paciente paciente = pacienteServico.consultarPorId(new Long(3));
+        paciente.setLogin("Luiz Luz");// login com espaço
+        try {
+            pacienteServico.atualizar(paciente);
+            assertTrue(false);
+        } catch (EJBException ex) {
+            assertTrue(ex.getCause() instanceof ConstraintViolationException);
+            ConstraintViolationException causa
+                    = (ConstraintViolationException) ex.getCause();
+            for (ConstraintViolation erroValidacao : causa.getConstraintViolations()) {
+                assertThat(erroValidacao.getMessage(),
+                        CoreMatchers.anyOf(startsWith("Não deve conter espaços.")));
+                               
+            }
+        }
+    } */
+    
+    @Test
+    public void consultarPacientePorTipo(){
+        assertEquals(2, pacienteServico.getPacientePorPlano(TipoPlanoSaude.UNIMED).size());
+    }
     
     
 

@@ -2,7 +2,6 @@
 package servico;
 
 import consultoriodescorp.Funcionario;
-import static consultoriodescorp.Funcionario.FUNCIONARIO_POR_TIPO;
 import consultoriodescorp.TipoFuncionario;
 import java.util.List;
 import javax.annotation.PostConstruct;

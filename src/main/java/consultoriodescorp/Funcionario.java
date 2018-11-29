@@ -1,5 +1,6 @@
 package consultoriodescorp;
 
+import validador.ValidaEscolaridade;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;

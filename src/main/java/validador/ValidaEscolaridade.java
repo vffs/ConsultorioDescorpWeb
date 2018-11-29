@@ -1,5 +1,5 @@
 
-package consultoriodescorp;
+package validador;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

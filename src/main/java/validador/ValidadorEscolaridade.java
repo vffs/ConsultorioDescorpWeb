@@ -1,5 +1,5 @@
 
-package consultoriodescorp;
+package validador;
 
 import java.util.ArrayList;
 import java.util.List;

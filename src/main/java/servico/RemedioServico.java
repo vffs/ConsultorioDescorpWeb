@@ -1,7 +1,9 @@
 
 package servico;
 
+import consultoriodescorp.Receita;
 import consultoriodescorp.Remedio;
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 /**
  *
@@ -9,6 +11,10 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class RemedioServico extends Servico<Remedio> {
+    @PostConstruct
+    public void init() {
+        super.setClasse(Remedio.class);
+    }
     
     public void salvar(Remedio remedio){
         entityManager.persist(remedio);

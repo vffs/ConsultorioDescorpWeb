@@ -70,7 +70,7 @@ public class FuncionarioServicoTeste extends Teste {
     @Test
     public void atualizarInvalido() {
         Funcionario funcionario = funcionarioServico.consultarPorId(new Long(7));
-        funcionario.setLogin("jose luz"); //login com espaço
+        funcionario.setEscolaridade("NIVEL MÉDIO COMPLETO"); //Escolaridade invalida
         try {
             funcionarioServico.atualizar(funcionario);
             assertTrue(false);
@@ -80,7 +80,7 @@ public class FuncionarioServicoTeste extends Teste {
                     = (ConstraintViolationException) ex.getCause();
             for (ConstraintViolation erroValidacao : causa.getConstraintViolations()) {
                 assertThat(erroValidacao.getMessage(),
-                        CoreMatchers.anyOf(startsWith("Não deve conter espaços.")));
+                        CoreMatchers.anyOf(startsWith("Escolaridade invalida.")));
                                
             }
         }

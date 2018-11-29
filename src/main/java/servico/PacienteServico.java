@@ -2,6 +2,8 @@
 package servico;
 
 import consultoriodescorp.Paciente;
+import consultoriodescorp.TipoPlanoSaude;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 
@@ -32,5 +34,9 @@ public class PacienteServico extends Servico<Paciente> {
     
     public Paciente criar() {
         return new Paciente();
+    }
+    
+     public List<Paciente> getPacientePorPlano(TipoPlanoSaude tipo) {
+        return super.getEntidades(Paciente.PACIENTE_POR_PLANO, new Object[] {tipo});
     }
 }
