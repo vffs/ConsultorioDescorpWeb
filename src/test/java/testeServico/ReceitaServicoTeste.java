@@ -11,6 +11,8 @@ import java.util.Date;
 import javax.naming.NamingException;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 import servico.FuncionarioServico;
@@ -40,13 +42,6 @@ public class ReceitaServicoTeste extends Teste{
     public void tearDown() {
         receitaServico = null;
     }
-    private Date getData(int dia, int mes, int ano) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_MONTH, dia);
-        calendar.set(Calendar.MONTH, mes);
-        calendar.set(Calendar.YEAR, ano);
-        return calendar.getTime();
-    }
     
     @Test
     public void persistirReceita(){
@@ -60,6 +55,7 @@ public class ReceitaServicoTeste extends Teste{
         receita.setPaciente(paciente);
         receita.setDataReceita(getData(20,Calendar.DECEMBER,2018));
         receitaServico.salvar(receita);
+        assertNotNull(receita.getId());
     }
     @Test
     public void atualizarReceita(){
@@ -73,4 +69,12 @@ public class ReceitaServicoTeste extends Teste{
         assertEquals("15-12-2018", dataReceita);
     }
     
+    @Test
+    public void removerReceita(){
+     Receita receita = receitaServico.consultarPorId(new Long(4));
+     receitaServico.remover(receita);
+     receita = receitaServico.consultarPorId(new Long(4));
+     assertNull(receita);
+     
+    }
 }

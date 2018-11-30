@@ -21,6 +21,7 @@ public class SolicitarExameServico extends Servico<SolicitarExame> {
     }
     
     public void remover(SolicitarExame solicitar){
+        solicitar = entityManager.merge(solicitar);
         entityManager.remove(solicitar);
     }
     

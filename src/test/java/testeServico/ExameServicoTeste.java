@@ -11,6 +11,7 @@ import static org.hamcrest.CoreMatchers.startsWith;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -45,6 +46,7 @@ public class ExameServicoTeste extends Teste{
         Exame exame = exameServico.criar();
         exame.setNome("Colonoscopia");
         exameServico.salvar(exame);
+        assertNotNull(exame.getId());
     }
     
     @Test
@@ -74,4 +76,11 @@ public class ExameServicoTeste extends Teste{
             }        }
     } 
     
+    @Test
+    public void removerExame(){
+        Exame exame = exameServico.consultarPorId(new Long(1));
+        exameServico.remover(exame);
+        exame = exameServico.consultarPorId(new Long(1));
+        assertNull(exame);
+    }
 }

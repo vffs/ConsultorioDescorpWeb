@@ -25,7 +25,8 @@ public class ReceitaServico extends Servico<Receita> {
     }
     
     public void remover(Receita receita){
-        entityManager.remove(receita);
+      receita =  entityManager.merge(receita);
+       entityManager.remove(receita);
     }
     
     public Receita criar() {

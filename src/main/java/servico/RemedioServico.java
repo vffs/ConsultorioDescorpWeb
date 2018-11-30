@@ -1,7 +1,6 @@
 
 package servico;
 
-import consultoriodescorp.Receita;
 import consultoriodescorp.Remedio;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
@@ -26,6 +25,7 @@ public class RemedioServico extends Servico<Remedio> {
     }
     
     public void remover(Remedio remedio){
+        remedio = entityManager.merge(remedio);
         entityManager.remove(remedio);
     }
     

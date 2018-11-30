@@ -19,19 +19,20 @@ import javax.persistence.Table;
 @Table(name = "TB_PACIENTE")
 @NamedQueries({
     @NamedQuery(
-    name = "Listar.Paciente",
-    query = "SELECT p FROM Paciente p"),
+            name = "Listar.Paciente",
+            query = "SELECT p FROM Paciente p")
+    ,
     @NamedQuery(
-    name="Listar.Paciente.Planos",
-    query="SELECT p FROM Paciente p WHERE p.plano=?1"        
+            name = "Listar.Paciente.Planos",
+            query = "SELECT p FROM Paciente p WHERE p.plano=?1"
     )
-    
+
 })
 @DiscriminatorValue(value = "P")
-@PrimaryKeyJoinColumn(name = "ID_PACIENTE",referencedColumnName ="ID_USUARIO")
+@PrimaryKeyJoinColumn(name = "ID_PACIENTE", referencedColumnName = "ID_USUARIO")
 public class Paciente extends Usuario implements Serializable {
     public static final String PACIENTE_POR_PLANO = "Listar.Paciente.Planos";
-    
+
     @Enumerated(EnumType.STRING)
     @Column(name = "CL_PLANO")
     private TipoPlanoSaude plano;

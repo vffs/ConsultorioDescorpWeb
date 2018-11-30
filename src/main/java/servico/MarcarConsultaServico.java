@@ -21,6 +21,7 @@ public class MarcarConsultaServico extends Servico<MarcarConsulta> {
     }
     
     public void remover(MarcarConsulta marcar){
+        marcar = entityManager.merge(marcar);
         entityManager.remove(marcar);
     }
     

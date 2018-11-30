@@ -6,6 +6,7 @@ import consultoriodescorp.TipoPlanoSaude;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.validation.Valid;
 
 /**
  *
@@ -23,12 +24,13 @@ public class PacienteServico extends Servico<Paciente> {
         entityManager.persist(paciente);
     }
     
-    public void atualizar(Paciente paciente){
+    public void atualizar(@Valid Paciente paciente){
         entityManager.merge(paciente);
         entityManager.flush();
     }
     
     public void remover(Paciente paciente){
+        paciente = entityManager.merge(paciente);
         entityManager.remove(paciente);
     }
     

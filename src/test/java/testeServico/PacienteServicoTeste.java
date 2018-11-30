@@ -12,6 +12,7 @@ import static org.hamcrest.CoreMatchers.startsWith;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -61,11 +62,11 @@ public class PacienteServicoTeste extends Teste{
         paciente = pacienteServico.consultarPorId(new Long(2));
         assertEquals("joaoaugusto@yahoo.com.br", paciente.getEmail());
     }
-  /* 
+  
     @Test
     public void atualizarPacienteInvalido() {
         Paciente paciente = pacienteServico.consultarPorId(new Long(3));
-        paciente.setLogin("Luiz Luz");// login com espaço
+        paciente.setEmail("luiz#gmail");// login com espaço
         try {
             pacienteServico.atualizar(paciente);
             assertTrue(false);
@@ -75,17 +76,23 @@ public class PacienteServicoTeste extends Teste{
                     = (ConstraintViolationException) ex.getCause();
             for (ConstraintViolation erroValidacao : causa.getConstraintViolations()) {
                 assertThat(erroValidacao.getMessage(),
-                        CoreMatchers.anyOf(startsWith("Não deve conter espaços.")));
+                        CoreMatchers.anyOf(startsWith("Não é um endereço de e-mail")));
                                
             }
         }
-    } */
+    }
     
     @Test
     public void consultarPacientePorTipo(){
         assertEquals(2, pacienteServico.getPacientePorPlano(TipoPlanoSaude.UNIMED).size());
     }
     
-    
+    @Test
+    public void removerPaciente(){
+        Paciente paciente = pacienteServico.consultarPorId(new Long(1));
+        pacienteServico.remover(paciente);
+        paciente = pacienteServico.consultarPorId(new Long(1));
+        assertNull(paciente);
+    }
 
 }

@@ -29,6 +29,7 @@ public class FuncionarioServico extends Servico<Funcionario>  {
     }
     
     public void remover(Funcionario funcionario){
+        funcionario = entityManager.merge(funcionario);
         entityManager.remove(funcionario);
     }
     

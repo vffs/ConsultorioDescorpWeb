@@ -27,6 +27,7 @@ public class ExameServico extends Servico<Exame>{
     }
     
     public void remover(Exame exame){
+        exame = entityManager.merge(exame);
         entityManager.remove(exame);
     }
     public Exame getExame(String nome) {

@@ -34,26 +34,26 @@ public abstract class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ID_USUARIO")
-    private Long id;
+    protected Long id;
     @NotBlank
     @Size(max=40)
     @Column(name="CL_NOME")
-    private String nome;
+    protected String nome;
     @NotBlank
     @Pattern(regexp = "([^\\s])\\w+", message = "{consultoriodescorp.Usuario.login}")
     @Column(name="CL_LOGIN")
-    private String login;
+    protected String login;
     @NotBlank
     @Column(name="CL_SENHA")
     @Size(min=6,max=20)
-    private String senha;
+    protected String senha;
     @NotBlank
     @Email
     @Column(name="CL_EMAIL")
-    private String email;
+    protected String email;
     @NotBlank
     @Column(name="CL_SEXO")
-    private String sexo;
+    protected String sexo;
     
     
 

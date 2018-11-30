@@ -12,6 +12,7 @@ import static org.hamcrest.CoreMatchers.startsWith;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -86,5 +87,12 @@ public class FuncionarioServicoTeste extends Teste {
         }
     } 
     
+    @Test
+    public void removerFuncionario(){
+        Funcionario funcionario = funcionarioServico.consultarPorId(new Long(6));
+        funcionarioServico.remover(funcionario);
+        funcionario = funcionarioServico.consultarPorId(new Long(6));
+        assertNull(funcionario);
+    }
 
 }
