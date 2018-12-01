@@ -47,7 +47,9 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name="TB_REMEDIO")
 public class Remedio implements Serializable{
-
+    public static final String REMEDIO_POR_TRATAMENTO = "Remedio.PorTratamento";
+    public static final String TOTAL_REMEDIO_EM_RECEITA = "TotalRemediosEmReceitasSQL";
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ID_REMEDIO")

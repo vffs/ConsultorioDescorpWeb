@@ -2,6 +2,7 @@
 package servico;
 
 import consultoriodescorp.Remedio;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 /**
@@ -32,5 +33,10 @@ public class RemedioServico extends Servico<Remedio> {
     public Remedio criar() {
         return new Remedio();
     }
+    
+    public List<Remedio> getRemedioPorTratamento(String remedio) {
+        return super.getEntidades(Remedio.REMEDIO_POR_TRATAMENTO, new Object[] {remedio});
+    }
+     
     
 }
