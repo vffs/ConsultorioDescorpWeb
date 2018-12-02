@@ -47,7 +47,6 @@ public class MarcarConsulta implements Serializable {
  
     @JoinColumn(name="ID_PACIENTE")
     @OneToOne(fetch = FetchType.LAZY)
-   
     private Paciente paciente;
 
     public Long getId() {

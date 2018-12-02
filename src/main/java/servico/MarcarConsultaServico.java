@@ -2,6 +2,7 @@
 package servico;
 
 import consultoriodescorp.MarcarConsulta;
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 
 /**
@@ -10,6 +11,10 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class MarcarConsultaServico extends Servico<MarcarConsulta> {
+    @PostConstruct
+    public void init() {
+        super.setClasse(MarcarConsulta.class);
+    }
     
     public void salvar(MarcarConsulta marcar){
         entityManager.persist(marcar);
