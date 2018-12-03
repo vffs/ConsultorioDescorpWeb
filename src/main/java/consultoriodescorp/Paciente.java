@@ -10,6 +10,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -32,7 +33,8 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "ID_PACIENTE", referencedColumnName = "ID_USUARIO")
 public class Paciente extends Usuario implements Serializable {
     public static final String PACIENTE_POR_PLANO = "Listar.Paciente.Planos";
-
+    
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "CL_PLANO")
     private TipoPlanoSaude plano;

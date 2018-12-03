@@ -24,7 +24,7 @@ public class PacienteServico extends Servico<Paciente> {
         entityManager.persist(paciente);
     }
     
-    public void atualizar(@Valid Paciente paciente){
+    public void atualizar(Paciente paciente){
         entityManager.merge(paciente);
         entityManager.flush();
     }

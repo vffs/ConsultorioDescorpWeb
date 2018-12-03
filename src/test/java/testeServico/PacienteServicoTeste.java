@@ -66,7 +66,8 @@ public class PacienteServicoTeste extends Teste{
     @Test
     public void atualizarPacienteInvalido() {
         Paciente paciente = pacienteServico.consultarPorId(new Long(3));
-        paciente.setEmail("luiz#gmail");// login com espaço
+        paciente.setEmail("luiz#gmail");// email invalido
+        paciente.setLogin("luiz luz");// login com espaço
         try {
             pacienteServico.atualizar(paciente);
             assertTrue(false);
@@ -76,7 +77,8 @@ public class PacienteServicoTeste extends Teste{
                     = (ConstraintViolationException) ex.getCause();
             for (ConstraintViolation erroValidacao : causa.getConstraintViolations()) {
                 assertThat(erroValidacao.getMessage(),
-                        CoreMatchers.anyOf(startsWith("Não é um endereço de e-mail")));
+                        CoreMatchers.anyOf(startsWith("Não é um endereço de e-mail"),
+                                startsWith("Não deve conter espaços.")));
                                
             }
         }

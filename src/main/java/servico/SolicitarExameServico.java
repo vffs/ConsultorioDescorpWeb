@@ -1,7 +1,7 @@
 
 package servico;
-
 import consultoriodescorp.SolicitarExame;
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 
 /**
@@ -10,6 +10,11 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class SolicitarExameServico extends Servico<SolicitarExame> {
+    
+    @PostConstruct
+    public void init() {
+        super.setClasse(SolicitarExame.class);
+    }
     
     public void salvar(SolicitarExame solicitar){
         entityManager.persist(solicitar);

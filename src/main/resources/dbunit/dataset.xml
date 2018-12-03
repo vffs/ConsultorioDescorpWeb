@@ -121,7 +121,11 @@
     <TB_EXAME ID_EXAME="4" CL_NOME_EXAME="Hemograma completo"></TB_EXAME>
       
     <!-- Exame id = 5 -->  
-    <TB_EXAME ID_EXAME="5" CL_NOME_EXAME="Esteira"></TB_EXAME>  
+    <TB_EXAME ID_EXAME="5" CL_NOME_EXAME="Esteira"></TB_EXAME> 
+     
+    <!-- Exame id = 6 -->  
+    <TB_EXAME ID_EXAME="6" CL_NOME_EXAME="Biópsia"></TB_EXAME>  
+
     
     <!-- Solicitar exame id = 1 -->  
     <TB_SOLICITAR_EXAME ID_SOLICITAR_EXAME="1" CL_DATA_EXAME="2018-09-28" ID_EXAME="5" ID_FUNCIONARIO="5" ID_PACIENTE="2"></TB_SOLICITAR_EXAME>  
