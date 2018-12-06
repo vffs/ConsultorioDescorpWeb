@@ -6,7 +6,6 @@ import consultoriodescorp.TipoPlanoSaude;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
-import javax.validation.Valid;
 
 /**
  *

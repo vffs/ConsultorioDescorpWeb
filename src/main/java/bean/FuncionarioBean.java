@@ -4,7 +4,7 @@ package bean;
 import consultoriodescorp.Funcionario;
 import java.io.Serializable;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import servico.FuncionarioServico;
 
@@ -12,8 +12,8 @@ import servico.FuncionarioServico;
  *
  * @author valeria
  */
-@Named(value = "funcionario")
-@Dependent
+@RequestScoped
+@Named
 public class FuncionarioBean extends Bean<Funcionario> implements Serializable {
 
     @Inject
